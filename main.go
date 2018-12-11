@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	"strconv"
 )
 
 func main() {
@@ -13,7 +12,7 @@ func main() {
 	port := flag.Int("p", 8080, "port")
 	flag.Parse()
 
-	httpAddress := *address + ":" + strconv.Itoa(*port)
+	httpAddress := fmt.Sprintf("%s:%v", *address, *port)
 
 	srv := &http.Server{Addr: httpAddress}
 
